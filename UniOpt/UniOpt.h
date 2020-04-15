@@ -5,6 +5,11 @@
 class UniOpt
 {
 public:
+	enum Method 
+	{
+		DICHOTOMY, FIBONACCI
+	};
+
 	struct Result
 	{
 		int functionCalls;
@@ -15,6 +20,8 @@ public:
 
 		friend std::ostream& operator<<(std::ostream& stream, const Result& res);
 	};
+
+	static UniOpt* get(Method method);
 
 	virtual Result optimize(std::function<double(double)> fun, double prec, double a, double b) = 0;
 	Result optimize(std::function<double(double)> fun, double prec);

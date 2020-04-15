@@ -5,9 +5,8 @@ UniOpt::Result FibUniOpt::optimize(std::function<double(double)> fun, double pre
 {
 	double a_ = a;
 	double b_ = b;
-	double x1, x2, x, x3;
-	double y1, y2, y, y3;
-	double tempX, tempY;
+	double x1, x2, x3;
+	double y1, y2, y3;
 	int funCalls = 0;
 	fun = [&funCalls, fun](double x) { funCalls++; return fun(x); };
 	std::vector<int> F;

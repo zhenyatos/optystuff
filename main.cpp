@@ -1,13 +1,12 @@
 ﻿#include <iostream>
-#include "DihUniOpt.h"
-#include "FibUniOpt.h"
+#include "UniOpt.h"
 #include <math.h>
 #include <vector>
 
 int main()
 {
-	UniOpt* opt1 = new FibUniOpt();
-	UniOpt* opt2 = new DihUniOpt();
+	UniOpt* opt1 = UniOpt::get(UniOpt::Method::DICHOTOMY);
+	UniOpt* opt2 = UniOpt::get(UniOpt::Method::FIBONACCI);
 
 	std::vector<double> prec;
 	prec.push_back(0.1);

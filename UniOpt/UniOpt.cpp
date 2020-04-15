@@ -1,4 +1,6 @@
 #include "UniOpt.h"
+#include "Fib/FibUniOpt.h"
+#include "Dih/DihUniOpt.h"
 
 std::ostream& operator<<(std::ostream& stream, const UniOpt::Result& res)
 {
@@ -8,6 +10,20 @@ std::ostream& operator<<(std::ostream& stream, const UniOpt::Result& res)
 		"\nfunction called: " << res.functionCalls;
 		
 	return stream;
+}
+
+UniOpt* UniOpt::get(Method method)
+{
+	switch (method)
+	{
+	case UniOpt::DICHOTOMY:
+		return new DihUniOpt();
+	case UniOpt::FIBONACCI:
+		return new FibUniOpt();
+	default:
+		break;
+	}
+	return nullptr;
 }
 
 UniOpt::Result UniOpt::optimize(std::function<double(double)> fun, double prec)

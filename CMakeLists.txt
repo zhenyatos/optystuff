@@ -2,7 +2,7 @@
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(UniOpt UniOpt/Dih UniOpt/Fib)
+include_directories(UniOpt)
 
 add_executable (optystuff "main.cpp" 
 "UniOpt/UniOpt.h" "UniOpt/UniOpt.cpp"
