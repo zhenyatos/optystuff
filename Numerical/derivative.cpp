@@ -40,9 +40,16 @@ namespace nric
 			dx = front - back;
 
 			tempX[i] = front;
-			y1 = fun(tempX);
-			tempX[i] = back;
-			y2 = fun(tempX);
+			try {
+				y1 = fun(tempX);
+				tempX[i] = back;
+				y2 = fun(tempX);
+			}
+			catch (Error error)
+			{
+				if (error == WRONG_DIMENSION)
+					return vec(1);
+			}
 			res[i] = (y2 - y1) / dx;
 
 			tempX[i] = x[i];

@@ -7,6 +7,7 @@ namespace nric
 {
 	using vec = std::vector<double>;
 	using vecfun = std::function<double(vec)>;
+	enum Error { WRONG_DIMENSION };
 
 	vecfun convert1d(std::function<double(double)> fun);
 

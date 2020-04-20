@@ -4,17 +4,26 @@ namespace nric
 {
 	vecfun convert1d(std::function<double(double)> fun)
 	{
-		return [fun](vec x) { return fun(x[0]); };
+		return [fun](vec x) { 
+			if (x.size() != 1) 
+				throw WRONG_DIMENSION; 
+			return fun(x[0]); };
 	}
 
 	vecfun convert2d(std::function<double(double, double)> fun)
 	{
-		return [fun](vec x) { return fun(x[0], x[1]); };
+		return [fun](vec x) { 
+			if (x.size() != 2) 
+				throw WRONG_DIMENSION;
+			return fun(x[0], x[1]); };
 	}
 
 	vecfun convert3d(std::function<double(double, double, double)> fun)
 	{
-		return [fun](vec x) { return fun(x[0], x[1], x[2]); };
+		return [fun](vec x) { 
+			if (x.size() != 3) 
+				throw WRONG_DIMENSION; 
+			return fun(x[0], x[1], x[2]); };
 	}
 }
 
