@@ -30,7 +30,7 @@ namespace nric
 
 		friend vec operator+ (const vec& l, const vec& r);
 		friend vec operator- (const vec& l, const vec& r);
-		friend vec operator* (double scale, vec& x);
+		friend vec operator* (double scale, const vec& x);
 	};
 
 	double norm(nric::vec vec);

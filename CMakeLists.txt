@@ -2,7 +2,7 @@
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(UniOpt Numerical GradOpt)
+include_directories(UniOpt Numerical GradOpt GradOpt/FastGradStep)
 
 add_executable (optystuff "main.cpp" 
 "UniOpt/UniOpt.h" "UniOpt/UniOpt.cpp"
@@ -10,4 +10,5 @@ add_executable (optystuff "main.cpp"
 "UniOpt/Fib/FibUniOpt.h" "UniOpt/Fib/FibUniOpt.cpp"
 "Numerical/derivative.h" "Numerical/derivative.cpp"
 "Numerical/vecfun.h" "Numerical/vecfun.cpp"
-"GradOpt/GradOpt.h" "GradOpt/GradOpt.cpp")
+"GradOpt/GradOpt.h" "GradOpt/GradOpt.cpp"
+"GradOpt/FastGradStep/FastGradStep.h" "GradOpt/FastGradStep/FastGradStep.cpp")
