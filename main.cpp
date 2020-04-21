@@ -27,7 +27,7 @@ int main()
 
 	nric::vecfun fun = nric::convert2d(
 		[](double x, double y) { return 5 * pow(x, 2) + 5 * pow(y, 2) - 6 * x * y; });
-	nric::vec grad = nric::gradient(fun, { 1 });
+	nric::vec grad = nric::gradient(fun, { 1, 2 });
 	std::cout << grad;
 	std::cin.get();
 

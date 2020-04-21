@@ -17,13 +17,12 @@ namespace nric
 
 	vec gradient(vecfun fun, vec x, double eps)
 	{
-		int N = x.size();
+		int N = x.dim();
 		vec res(N);
 		double h;
 		double t;
 		double dx;
 		double y1, y2;
-		vec tempX = x;
 		volatile double front;
 		volatile double back;
 
@@ -39,20 +38,20 @@ namespace nric
 			back = t - h;
 			dx = front - back;
 
-			tempX[i] = front;
 			try {
-				y1 = fun(tempX);
-				tempX[i] = back;
-				y2 = fun(tempX);
+				x[i] = front;
+				y1 = fun(x);
+				x[i] = back;
+				y2 = fun(x);
 			}
 			catch (Error error)
 			{
 				if (error == WRONG_DIMENSION)
 					return vec(1);
 			}
-			res[i] = (y2 - y1) / dx;
+			res[i] = (y1 - y2) / dx;
 
-			tempX[i] = x[i];
+			x[i] = t;
 		}
 
 		return res;

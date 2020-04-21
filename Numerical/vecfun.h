@@ -5,7 +5,24 @@
 
 namespace nric
 {
-	using vec = std::vector<double>;
+	class vec 
+	{
+	private:
+		double* vals_;
+		int N_;
+
+	public:
+		vec(int N);
+		vec(std::initializer_list<double> list);
+		vec(const vec& other);
+		vec& operator=(const vec& other);
+		~vec();
+
+		int dim() const;
+		double& operator[](size_t index);
+		double operator[](size_t index) const;
+	};
+
 	using vecfun = std::function<double(vec)>;
 	enum Error { WRONG_DIMENSION };
 
