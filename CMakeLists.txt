@@ -11,5 +11,6 @@ add_executable (optystuff "main.cpp"
 "Numerical/derivative.h" "Numerical/derivative.cpp"
 "Numerical/vec.h" "Numerical/vec.cpp"
 "Numerical/mat.h" "Numerical/mat.cpp"
+"Numerical/linalg.h" "Numerical/linalg.cpp"
 "GradOpt/GradOpt.h" "GradOpt/GradOpt.cpp"
 "GradOpt/FastGradStep/FastGradStep.h" "GradOpt/FastGradStep/FastGradStep.cpp")

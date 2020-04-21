@@ -20,5 +20,7 @@ namespace nric
 
 		double& operator()(int i, int j);
 		double operator()(int i, int j) const;
+		int M() const;
+		int N() const;
 	};
 }

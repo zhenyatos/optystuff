@@ -57,9 +57,9 @@ namespace nric
 	mat& mat::operator=(const mat& other)
 	{
 		if (M_ != other.M_)
-			throw DIFFERENT_ROWNUM;
+			throw DIFFERENT_ROW_NUM;
 		if (N_ != other.N_)
-			throw DIFFERENT_COLNUM;
+			throw DIFFERENT_COL_NUM;
 
 		for (int i = 0; i < M_; i++)
 			for (int j = 0; j < N_; j++)
@@ -81,5 +81,15 @@ namespace nric
 	double mat::operator()(int i, int j) const
 	{
 		return vals_[i][j];
+	}
+
+	int mat::M() const
+	{
+		return M_;
+	}
+
+	int mat::N() const
+	{
+		return N_;
 	}
 }
