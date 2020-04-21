@@ -1,28 +1,39 @@
 #include "GradOpt.h"
 #include "derivative.h"
 
+std::ostream& operator<<(std::ostream& stream, const GradOpt::Result& res)
+{
+	stream << "x: " << res.x <<
+		"\ny: " << res.y <<
+		"\nIterations: " << res.iter;
+	return stream;
+}
+
 GradOpt::GradOpt(GradStep* gradStep)
 	: gradStep_(gradStep)
 {}
 
-nric::vec GradOpt::optimize(nric::vecfun fun, nric::vec init, double prec)
+GradOpt::Result GradOpt::optimize(nric::vecfun fun, nric::vec init, double prec)
 {
 	nric::vec& x0 = init;
 	nric::vec x(x0.dim());
 	nric::vec grad = nric::gradient(fun, x0);
 
 	x = gradStep_->step(fun, x0, grad);
+	int iter = 1;
+
 	while (nric::norm(x - x0) >= prec)
 	{
 		x0 = x;
 		grad = nric::gradient(fun, x0);
 		x = gradStep_->step(fun, x0, grad);
+		iter++;
 	}
 
-	return x;
+	return { x, fun(x), iter };
 }
 
-nric::vec GradOpt::optimize(nric::vecfun fun, int dim, double prec)
+GradOpt::Result GradOpt::optimize(nric::vecfun fun, int dim, double prec)
 {
 	nric::vec zero(dim);
 	for (int i = 0; i < dim; i++)

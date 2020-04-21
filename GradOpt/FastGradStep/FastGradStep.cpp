@@ -10,7 +10,7 @@ nric::vec FastGradStep::step(nric::vecfun fun, nric::vec x, nric::vec grad)
 		return fun(x - (alpha * grad));
 	};
 
-	double alpha = (opt_->optimize(tempFun, 0.0000001)).x;
+	double alpha = (opt_->optimize(tempFun, PREC, 0, MAX_ALPHA)).x;
 
 	return x - alpha * grad;
 }

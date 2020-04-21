@@ -12,7 +12,16 @@ class GradOpt
 private:
 	GradStep* gradStep_ = nullptr;
 public:
+	struct Result
+	{
+		nric::vec x;
+		double y;
+		int iter;
+
+		friend std::ostream& operator<<(std::ostream& stream, const Result& res);
+	};
+
 	GradOpt(GradStep* gradStep);
-	nric::vec optimize(nric::vecfun fun, nric::vec init, double prec);
-	nric::vec optimize(nric::vecfun fun, int dim, double prec);
+	Result optimize(nric::vecfun fun, nric::vec init, double prec);
+	Result optimize(nric::vecfun fun, int dim, double prec);
 };

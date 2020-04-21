@@ -5,6 +5,8 @@
 class FastGradStep : public GradStep
 {
 private:
+	const double MAX_ALPHA = 10;
+	const double PREC = 0.001;
 	UniOpt* opt_ = nullptr;
 public:
 	FastGradStep(UniOpt* opt);
