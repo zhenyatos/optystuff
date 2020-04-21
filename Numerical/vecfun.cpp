@@ -1,7 +1,18 @@
 #include "vecfun.h"
+#include <math.h>
 
 namespace nric
 {
+	double norm(vec x)
+	{
+		int N = x.dim();
+		double res = 0;
+
+		for (int i = 0; i < N; i++)
+			res += (x[i] * x[i]);
+		return sqrt(res);
+	}
+
 	vecfun convert1d(std::function<double(double)> fun)
 	{
 		return [fun](vec x) { 
@@ -81,6 +92,57 @@ namespace nric
 	double vec::operator[](size_t index) const
 	{
 		return vals_[index];
+	}
+
+	vec& vec::operator+=(const vec& other)
+	{
+		if (N_ != other.N_)
+			throw WRONG_DIMENSION;
+
+		for (int i = 0; i < N_; i++)
+			vals_[i] += other.vals_[i];
+
+		return *this;
+	}
+
+	vec& vec::operator-=(const vec& other)
+	{
+		if (N_ != other.N_)
+			throw WRONG_DIMENSION;
+
+		for (int i = 0; i < N_; i++)
+			vals_[i] -= other.vals_[i];
+
+		return *this;
+	}
+
+	vec& vec::operator*=(double scale)
+	{
+		for (int i = 0; i < N_; i++)
+			vals_[i] *= scale;
+
+		return *this;
+	}
+
+	vec operator+(const vec& l, const vec& r)
+	{
+		vec res = l;
+		res += r;
+		return res;
+	}
+
+	vec operator-(const vec& l, const vec& r)
+	{
+		vec res = l;
+		res -= r;
+		return res;
+	}
+
+	vec operator*(double scale, const vec& x)
+	{
+		vec res = x;
+		res *= scale;
+		return res;
 	}
 }
 

@@ -44,7 +44,7 @@ namespace nric
 				x[i] = back;
 				y2 = fun(x);
 			}
-			catch (Error error)
+			catch (error error)
 			{
 				if (error == WRONG_DIMENSION)
 					return vec(1);

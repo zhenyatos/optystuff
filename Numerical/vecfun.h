@@ -5,6 +5,8 @@
 
 namespace nric
 {
+	enum error { WRONG_DIMENSION };
+
 	class vec 
 	{
 	private:
@@ -21,10 +23,19 @@ namespace nric
 		int dim() const;
 		double& operator[](size_t index);
 		double operator[](size_t index) const;
+
+		vec& operator+=(const vec& other);
+		vec& operator-=(const vec& other);
+		vec& operator*=(double scale);
+
+		friend vec operator+ (const vec& l, const vec& r);
+		friend vec operator- (const vec& l, const vec& r);
+		friend vec operator* (double scale, vec& x);
 	};
 
+	double norm(nric::vec vec);
+
 	using vecfun = std::function<double(vec)>;
-	enum Error { WRONG_DIMENSION };
 
 	vecfun convert1d(std::function<double(double)> fun);
 
