@@ -9,6 +9,7 @@ add_executable (optystuff "main.cpp"
 "UniOpt/Dih/DihUniOpt.h" "UniOpt/Dih/DihUniOpt.cpp"
 "UniOpt/Fib/FibUniOpt.h" "UniOpt/Fib/FibUniOpt.cpp"
 "Numerical/derivative.h" "Numerical/derivative.cpp"
-"Numerical/vecfun.h" "Numerical/vecfun.cpp"
+"Numerical/vec.h" "Numerical/vec.cpp"
+"Numerical/mat.h" "Numerical/mat.cpp"
 "GradOpt/GradOpt.h" "GradOpt/GradOpt.cpp"
 "GradOpt/FastGradStep/FastGradStep.h" "GradOpt/FastGradStep/FastGradStep.cpp")

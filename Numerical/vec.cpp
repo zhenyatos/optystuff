@@ -1,4 +1,5 @@
-#include "vecfun.h"
+#include "vec.h"
+#include "error.h"
 #include <math.h>
 
 namespace nric

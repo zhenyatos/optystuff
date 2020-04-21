@@ -1,12 +1,9 @@
 #pragma once
-#include <vector>
 #include <functional>
 #include <ostream>
 
 namespace nric
 {
-	enum error { WRONG_DIMENSION };
-
 	class vec 
 	{
 	private:

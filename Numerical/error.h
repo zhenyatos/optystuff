@@ -1,0 +1,4 @@
+namespace nric
+{
+	enum error { WRONG_DIMENSION, DIFFERENT_ROWNUM, DIFFERENT_COLNUM };
+}
