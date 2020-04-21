@@ -1,37 +1,28 @@
 ﻿#include <iostream>
 #include "UniOpt.h"
-#include "derivative.h"
-#include "vecfun.h"
+#include "GradOpt.h"
+#include "FastGradStep.h"
 #include <math.h>
 #include <vector>
 
 int main()
 {
-	UniOpt* opt1 = UniOpt::get(UniOpt::Method::DICHOTOMY);
-	UniOpt* opt2 = UniOpt::get(UniOpt::Method::FIBONACCI);
+	UniOpt* uni = UniOpt::get(UniOpt::FIBONACCI);
+	GradStep* step = new FastGradStep(uni);
+	GradOpt opt(step);
 
-	std::vector<double> prec;
-	prec.push_back(0.1);
-	prec.push_back(0.01);
-	prec.push_back(0.001);
+	nric::vecfun fun1 = nric::convert2d(
+		[](double x, double y) { return 2 * pow(x, 4) + pow(y, 4) - pow(x, 2) - 2 * pow(y, 2); });
+	GradOpt::Result test1 = opt.optimize(fun1, { 0.4, 0.2 }, 0.000001);
+	std::cout << test1 << "\n";
 
-	UniOpt::Result res;
-	for each (double eps in prec)
-	{
-		res = opt1->optimize([](double x) { return abs(x - 3); }, eps);
-		std::cout << "Fib " << eps << ":\n" << res << "\n\n";
+	nric::vecfun fun2 = [](nric::vec x) { return pow(x[0], 4) + pow(x[1], 4) + pow(x[2], 4) - 3 * x[0] * x[1] * x[2]; };
+	GradOpt::Result test2 = opt.optimize(fun2, { 0.1, 0.2, 0.3 }, 0.000001);
+	std::cout << test2;
 
-		res = opt2->optimize([](double x) { return abs(x - 3); }, eps);
-		std::cout << "Dih " << eps << ":\n" << res << "\n\n";
-	}
-
-	nric::vecfun fun = nric::convert2d(
-		[](double x, double y) { return 5 * pow(x, 2) + 5 * pow(y, 2) - 6 * x * y; });
-	nric::vec grad = nric::gradient(fun, { 1, 2 });
-	std::cout << grad;
 	std::cin.get();
 
-	delete opt1;
-	delete opt2;
+	delete uni;
+	delete step;
 	return 0;
 }
