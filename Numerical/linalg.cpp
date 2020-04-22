@@ -95,8 +95,54 @@ namespace nric
 		return { L, D, R };
 	}
 
+	vec solveD(const mat& D, const vec& b)
+	{
+		int N = D.N();
+		vec x(N);
+
+		for (int i = 0; i < N; i++)
+			x[i] = b[i] / D(i, i);
+
+		return x;
+	}
+
+	vec solveR(const mat& R, const vec& b)
+	{
+		double temp = 0;
+		int N = R.N();
+		vec x(N);
+
+		for (int i = N-1; i >= 0; i--)
+		{
+			temp = b[i];
+			for (int j = i+1; j < N; j++)
+				temp -= (R(i, j) * x[j]);
+			x[i] = temp / R(i, i);
+		}
+
+		return x;
+	}
+
+	vec solveL(const mat& L, const vec& b)
+	{
+		double temp = 0;
+		int N = L.N();
+		vec x(N);
+
+		for (int i = 0; i < N; i++)
+		{
+			temp = b[i];
+			for (int j = 0; j < i; j++)
+				temp -= (L(i, j) * x[j]);
+			x[i] = temp / L(i, i);
+		}
+
+		return x;
+	}
+
 	vec solve(const mat& A, const vec& b)
 	{
-		return vec(1);
+		auto[L, D, R] = LDR(A);
+		return solveR(R, solveD(D, solveL(L, b)));
 	}
 }
