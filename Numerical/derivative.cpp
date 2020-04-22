@@ -1,4 +1,5 @@
 #include "derivative.h"
+#include "error.h"
 
 namespace nric
 {

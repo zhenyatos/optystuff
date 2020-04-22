@@ -1,16 +1,19 @@
 ﻿#include <iostream>
-#include "linalg.h"
+#include "GradOpt.h"
+#include "AdaptGradStep.h"
+#include "FastGradStep.h"
+#include "UniOpt.h"
+#include "vec.h"
 #include <math.h>
 #include <vector>
 
 int main()
 {
-	nric::mat A = { {1, -1, 3, 1},
-					{4, -1, 5, 4},
-					{2, -2, 4, 1},
-					{1, -4, 5, -1} };
-	nric::vec b = { {5, 4, 6, 3} };
-	std::cout << nric::solve(A, b);
+	AdaptGradStep gradStep;
+	GradOpt opt(&gradStep);
+	
+	nric::vecfun fun = [](nric::vec x) { return 2 * pow(x[0], 4) + pow(x[1], 4) - pow(x[0], 2) - 2 * pow(x[1], 2); };
+	std::cout << opt.optimize(fun, { 10, 900 }, 0.00001);
 
 	std::cin.get();
 	return 0;
