@@ -1,0 +1,12 @@
+namespace nric
+{
+	enum error 
+	{ 
+		WRONG_DIMENSION, 
+		DIFFERENT_ROW_NUM, 
+		DIFFERENT_COL_NUM, 
+		INVALID_MATRIX_MULT,
+		NOT_SQUARE_MATRIX,
+		NOT_INVERTIBLE
+	};
+}

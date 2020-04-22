@@ -1,5 +1,5 @@
 #pragma once
-#include "vecfun.h"
+#include "vec.h"
 
 namespace nric
 {
