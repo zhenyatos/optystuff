@@ -1,5 +1,6 @@
 #pragma once
 #include <initializer_list>
+#include <ostream>
 
 namespace nric
 {
@@ -24,3 +25,5 @@ namespace nric
 		int N() const;
 	};
 }
+
+std::ostream& operator<<(std::ostream& stream, const nric::mat& A);

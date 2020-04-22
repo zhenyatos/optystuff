@@ -64,6 +64,8 @@ namespace nric
 		for (int i = 0; i < M_; i++)
 			for (int j = 0; j < N_; j++)
 				vals_[i][j] = other.vals_[i][j];
+
+		return *this;
 	}
 
 	nric::mat::~mat()
@@ -92,4 +94,23 @@ namespace nric
 	{
 		return N_;
 	}
+}
+
+std::ostream& operator<<(std::ostream& stream, const nric::mat& A)
+{
+	stream << "[";
+	int M = A.M();
+	int N = A.N();
+
+	for (int i = 0; i < M; i++)
+	{
+		stream << "[";
+		for (int j = 0; j < N-1; j++)
+			stream << A(i, j) << " ";
+		stream << A(i, N-1) << "]";
+		if (i != M-1)
+			stream << "\n";
+	}
+
+	return stream;
 }
