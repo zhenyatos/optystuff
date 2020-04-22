@@ -22,6 +22,9 @@ public:
 	};
 
 	GradOpt(GradStep* gradStep);
+	
 	Result optimize(nric::vecfun fun, nric::vec init, double prec);
 	Result optimize(nric::vecfun fun, int dim, double prec);
+
+	void setGradStep(GradStep* gradStep);
 };

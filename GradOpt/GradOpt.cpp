@@ -41,3 +41,10 @@ GradOpt::Result GradOpt::optimize(nric::vecfun fun, int dim, double prec)
 
 	return optimize(fun, zero, prec);
 }
+
+void GradOpt::setGradStep(GradStep* gradStep)
+{
+	if (gradStep == nullptr)
+		return;
+	gradStep_ = gradStep;
+}
