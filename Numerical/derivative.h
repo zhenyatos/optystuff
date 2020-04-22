@@ -1,5 +1,6 @@
 #pragma once
 #include "vec.h"
+#include "mat.h"
 
 namespace nric
 {
@@ -8,4 +9,6 @@ namespace nric
 	double derivative(std::function<double(double)> fun, double x, double eps = EPS);
 
 	vec gradient(vecfun fun, vec x, double eps = EPS);
+
+	mat hessian(vecfun fun, vec x, double eps = EPS);
 }
