@@ -5,7 +5,8 @@ std::ostream& operator<<(std::ostream& stream, const GradOpt::Result& res)
 {
 	stream << "x: " << res.x <<
 		"\ny: " << res.y <<
-		"\nIterations: " << res.iter;
+		"\ngradient value: " << res.grad << 
+		"\niterations: " << res.iter;
 	return stream;
 }
 
@@ -30,16 +31,9 @@ GradOpt::Result GradOpt::optimize(nric::vecfun fun, nric::vec init, double prec)
 		iter++;
 	}
 
-	return { x, fun(x), iter };
-}
+	double gradValue = nric::norm(nric::gradient(fun, x));
 
-GradOpt::Result GradOpt::optimize(nric::vecfun fun, int dim, double prec)
-{
-	nric::vec zero(dim);
-	for (int i = 0; i < dim; i++)
-		zero[i] = 0;
-
-	return optimize(fun, zero, prec);
+	return { x, fun(x), gradValue, iter };
 }
 
 void GradOpt::setGradStep(GradStep* gradStep)

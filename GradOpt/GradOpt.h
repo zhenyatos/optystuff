@@ -16,6 +16,7 @@ public:
 	{
 		nric::vec x;
 		double y;
+		double grad;
 		int iter;
 
 		friend std::ostream& operator<<(std::ostream& stream, const Result& res);
@@ -24,7 +25,6 @@ public:
 	GradOpt(GradStep* gradStep);
 	
 	Result optimize(nric::vecfun fun, nric::vec init, double prec);
-	Result optimize(nric::vecfun fun, int dim, double prec);
 
 	void setGradStep(GradStep* gradStep);
 };
