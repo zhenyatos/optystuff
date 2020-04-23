@@ -7,7 +7,7 @@
 	minimization on [a, b] interval problem solver, 
 	to get concrete algorithm use form:
 	UniOpt* opt = UniOpt::get(...)
-	*/
+*/
 class UniOpt
 {
 public:
@@ -23,7 +23,8 @@ public:
 	};
 
 	/*
-		Result - solution of the optimization problem
+		Solution of the
+		unimodual function minimization problem
 	*/
 	struct Result
 	{
