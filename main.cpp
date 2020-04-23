@@ -5,6 +5,7 @@
 #include "UniOpt.h"
 #include "vec.h"
 #include "derivative.h"
+#include "Newton.h"
 #include <math.h>
 #include <vector>
 
@@ -21,7 +22,8 @@ int main()
 	opt.setGradStep(&gradStep2);
 	std::cout << opt.optimize(fun, { 10000, 900 }, 0.0000001) << "\n";
 
-	std::cout << nric::hessian(fun, { 1, 3 });
+	Newton newton;
+	std::cout << newton.optimize(fun, { 10000, 900 }, 0.0000001) << "\n";
 
 	std::cin.get();
 	delete uniOpt;
