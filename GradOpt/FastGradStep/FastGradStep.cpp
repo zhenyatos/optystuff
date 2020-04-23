@@ -1,11 +1,15 @@
 #include "FastGradStep.h"
+#include "derivative.h"
 
 FastGradStep::FastGradStep(UniOpt* opt)
 	: opt_(opt)
 {}
 
-nric::vec FastGradStep::step(nric::vecfun fun, nric::vec x, nric::vec grad)
+nric::vec FastGradStep::step(nric::vecfun fun, nric::vec x)
 {
+	if (opt_ == nullptr)
+		throw NO_UNIMODAL_OPT;
+	nric::vec grad = nric::gradient(fun, x);
 	std::function<double(double)> tempFun = [fun, x, grad](double alpha) {
 		return fun(x - (alpha * grad));
 	};

@@ -1,4 +1,5 @@
 #include "AdaptGradStep.h"
+#include "derivative.h"
 
 AdaptGradStep::AdaptGradStep(double delta, double epsilon)
 {
@@ -13,9 +14,10 @@ AdaptGradStep::AdaptGradStep(double delta, double epsilon)
 		epsilon_ = epsilon;
 }
 
-nric::vec AdaptGradStep::step(nric::vecfun fun, nric::vec x, nric::vec grad)
+nric::vec AdaptGradStep::step(nric::vecfun fun, nric::vec x)
 {
 	double a = 1;
+	nric::vec grad = nric::gradient(fun, x);
 	double temp = fun(x - a * grad) - fun(x);
 	while (temp > -epsilon_ * a * nric::norm(grad) * nric::norm(grad))
 	{

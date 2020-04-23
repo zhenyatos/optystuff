@@ -16,18 +16,18 @@ GradOpt::GradOpt(GradStep* gradStep)
 
 GradOpt::Result GradOpt::optimize(nric::vecfun fun, nric::vec init, double prec)
 {
+	if (gradStep_ == nullptr)
+		throw NO_GRADSTEP;
 	nric::vec& x0 = init;
 	nric::vec x(x0.dim());
-	nric::vec grad = nric::gradient(fun, x0);
 
-	x = gradStep_->step(fun, x0, grad);
+	x = gradStep_->step(fun, x0);
 	int iter = 1;
 
 	while (nric::norm(x - x0) >= prec)
 	{
 		x0 = x;
-		grad = nric::gradient(fun, x0);
-		x = gradStep_->step(fun, x0, grad);
+		x = gradStep_->step(fun, x0);
 		iter++;
 	}
 
