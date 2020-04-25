@@ -14,7 +14,7 @@ public:
 	AdaptGradStep(double delta = 0.5, double epsilon = 0.5);
 
 	/*
-		Calculates next step
+		Calculates next step with ADAPTIVE STRATEGY
 		@param fun - function
 		@param x - current step point
 		@return next step point

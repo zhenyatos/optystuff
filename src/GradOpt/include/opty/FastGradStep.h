@@ -21,7 +21,7 @@ public:
 	FastGradStep(UniOpt* opt = nullptr);
 
 	/*
-		Calculates next step
+		Calculates next step with FASTEST DESCENT STRATEGY
 		@param fun - function
 		@param x - current step point
 		@return next step point
