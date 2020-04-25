@@ -1,5 +1,5 @@
-#include "AdaptGradStep.h"
-#include "derivative.h"
+#include "opty/AdaptGradStep.h"
+#include "opty/derivative.h"
 
 AdaptGradStep::AdaptGradStep(double delta, double epsilon)
 {

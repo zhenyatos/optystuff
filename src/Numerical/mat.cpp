@@ -1,5 +1,5 @@
-#include "mat.h"
-#include "error.h"
+#include "opty/mat.h"
+#include "opty/error.h"
 
 namespace nric
 {

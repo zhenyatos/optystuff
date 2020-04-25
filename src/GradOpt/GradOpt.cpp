@@ -1,5 +1,5 @@
-#include "GradOpt.h"
-#include "derivative.h"
+#include "opty/GradOpt.h"
+#include "opty/derivative.h"
 
 std::ostream& operator<<(std::ostream& stream, const GradOpt::Result& res)
 {

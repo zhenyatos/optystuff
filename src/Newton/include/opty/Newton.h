@@ -1,5 +1,5 @@
 #pragma once
-#include "vec.h"
+#include "opty/vec.h"
 
 /*
 	This class represents Newtons method

@@ -1,11 +1,11 @@
 ﻿#include <iostream>
-#include "GradOpt.h"
-#include "AdaptGradStep.h"
-#include "FastGradStep.h"
-#include "UniOpt.h"
-#include "vec.h"
-#include "derivative.h"
-#include "Newton.h"
+#include "opty/GradOpt.h"
+#include "opty/AdaptGradStep.h"
+#include "opty/FastGradStep.h"
+#include "opty/UniOpt.h"
+#include "opty/vec.h"
+#include "opty/derivative.h"
+#include "opty/Newton.h"
 #include <math.h>
 #include <vector>
 

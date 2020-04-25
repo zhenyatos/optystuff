@@ -1,11 +1,11 @@
-#include "UniOpt.h"
-#include "Fib/FibUniOpt.h"
-#include "Dih/DihUniOpt.h"
+#include "opty/UniOpt.h"
+#include "opty/FibUniOpt.h"
+#include "opty/DihUniOpt.h"
 
 std::ostream& operator<<(std::ostream& stream, const UniOpt::Result& res)
 {
 	stream << "X = [" << res.a << ", " << res.b << "]" <<
-		"\nx: " << res.x <<
+		"\nx: " << res.x << 
 		"\ny: " << res.y <<
 		"\nfunction called: " << res.functionCalls;
 		
