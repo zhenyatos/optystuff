@@ -1,5 +1,5 @@
-#include "linalg.h"
-#include "error.h"
+#include "opty/linalg.h"
+#include "opty/error.h"
 
 namespace nric
 {

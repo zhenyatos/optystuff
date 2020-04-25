@@ -1,6 +1,6 @@
 #pragma once
 #include "GradOpt.h"
-#include "UniOpt.h"
+#include "opty/UniOpt.h"
 
 /*
 	This class represents fastest descent

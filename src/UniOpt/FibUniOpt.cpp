@@ -1,4 +1,4 @@
-#include "FibUniOpt.h"
+#include "opty/FibUniOpt.h"
 #include <vector>
 
 UniOpt::Result FibUniOpt::optimize(std::function<double(double)> fun, double prec, double a, double b)

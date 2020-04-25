@@ -1,5 +1,5 @@
-#include "derivative.h"
-#include "error.h"
+#include "opty/derivative.h"
+#include "opty/error.h"
 
 namespace nric
 {

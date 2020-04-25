@@ -1,6 +1,6 @@
-#include "Newton.h"
-#include "linalg.h"
-#include "derivative.h"
+#include "opty/Newton.h"
+#include "opty/linalg.h"
+#include "opty/derivative.h"
 
 std::ostream& operator<<(std::ostream& stream, const Newton::Result& res)
 {

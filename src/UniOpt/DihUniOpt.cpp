@@ -1,4 +1,4 @@
-#include "DihUniOpt.h"
+#include "opty/DihUniOpt.h"
 
 UniOpt::Result DihUniOpt::optimize(std::function<double(double)> fun, double prec, double a, double b)
 {

@@ -1,24 +1,14 @@
-﻿cmake_minimum_required (VERSION 3.8)
+﻿cmake_minimum_required (VERSION 3.11)
+
+project(optystuff
+		VERSION 0.1
+		DESCRIPTION "Writing numerical optimization methods stuff"
+		LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(
-UniOpt 
-Numerical 
-GradOpt 
-GradOpt/FastGradStep 
-GradOpt/AdaptGradStep 
-Newton)
+# library code is here
+add_subdirectory(src)
 
-add_executable (optystuff "main.cpp" 
-"UniOpt/UniOpt.h" "UniOpt/UniOpt.cpp"
-"UniOpt/Dih/DihUniOpt.h" "UniOpt/Dih/DihUniOpt.cpp"
-"UniOpt/Fib/FibUniOpt.h" "UniOpt/Fib/FibUniOpt.cpp"
-"Numerical/derivative.h" "Numerical/derivative.cpp"
-"Numerical/vec.h" "Numerical/vec.cpp"
-"Numerical/mat.h" "Numerical/mat.cpp"
-"Numerical/linalg.h" "Numerical/linalg.cpp"
-"GradOpt/GradOpt.h" "GradOpt/GradOpt.cpp"
-"GradOpt/FastGradStep/FastGradStep.h" "GradOpt/FastGradStep/FastGradStep.cpp"
-"GradOpt/AdaptGradStep/AdaptGradStep.h" "GradOpt/AdaptGradStep/AdaptGradStep.cpp"
-"Newton/Newton.h" "Newton/Newton.cpp")
+# executable code is here
+add_subdirectory(app)

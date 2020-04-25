@@ -1,5 +1,5 @@
-#include "FastGradStep.h"
-#include "derivative.h"
+#include "opty/FastGradStep.h"
+#include "opty/derivative.h"
 
 FastGradStep::FastGradStep(UniOpt* opt)
 	: opt_(opt)
