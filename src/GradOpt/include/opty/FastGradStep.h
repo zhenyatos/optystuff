@@ -18,7 +18,11 @@ public:
 		NO_UNIMODAL_OPT		// You should specify unimodal optimizator
 	};
 
-	FastGradStep(UniOpt* opt = nullptr);
+	/*
+		Strategy constructor
+		@param opt - unimodal optimizer is used to find step coefficient
+	*/
+	explicit FastGradStep(UniOpt* opt = nullptr);
 
 	/*
 		Calculates next step with FASTEST DESCENT STRATEGY

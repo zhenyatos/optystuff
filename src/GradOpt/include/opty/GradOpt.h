@@ -52,7 +52,7 @@ public:
 	/*
 		Basic constructor
 	*/
-	GradOpt(GradStep* gradStep = nullptr);
+	explicit GradOpt(GradStep* gradStep = nullptr);
 	
 	/*
 		Solves minimization problem for multivariable function
