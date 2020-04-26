@@ -145,4 +145,17 @@ namespace nric
 		auto[L, D, R] = LDR(A);
 		return solveR(R, solveD(D, solveL(L, b)));
 	}
+
+	double operator*(const vec& a, const vec& b)
+	{
+		if (a.dim() != b.dim())
+			throw WRONG_DIMENSION;
+
+		int N = a.dim();
+		double res = 0;
+		for (int i = 0; i < N; i++)
+			res += (a[i] * b[i]);
+
+		return res;
+	}
 }
