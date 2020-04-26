@@ -32,4 +32,10 @@ namespace nric
 		@return solution vector
 	*/
 	vec solve(const mat& A, const vec& b);
+
+	/*
+		LINEAR ALGEBRA: dot product
+		of a and b  vectors
+	*/
+	double operator*(const vec& a, const vec& b);
 }
