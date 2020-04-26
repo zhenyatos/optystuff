@@ -3,12 +3,22 @@
 
 /*
 	This class represents Newtons method
-	(gradient 2nd order algorithm)
+	(gradient 2nd order algorithm) with adaptive step
 	for multivariable function minimization
 */
 class Newton
 {
+private:
+	double delta_;		// Step coefficient multiplies by this value
+	double epsilon_;	// Use in exit condition to make it stronger or weaker
 public:
+	/*
+		Method constructor
+		@param delta - step coefficient multiplies by this value, between 0 and 1
+		@param epsilon - used in adaptive step exit condition, between 0 and 1
+	*/
+	explicit Newton(double delta = 0.5, double epsilon = 0.5);
+
 	/*
 		Solution of the multivariable 
 		function minimization problem

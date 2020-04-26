@@ -11,8 +11,13 @@ private:
 	double delta_;		// Step coefficient multiplies by this value
 	double epsilon_;	// Use in exit condition to make it stronger or weaker
 public:
-	AdaptGradStep(double delta = 0.5, double epsilon = 0.5);
-
+	/*
+		Strategy constructor
+		@param delta - step coefficient multiplies by this value, between 0 and 1
+		@param epsilon - used in adaptive step exit condition, between 0 and 1
+	*/
+	explicit AdaptGradStep(double delta = 0.5, double epsilon = 0.5);
+	
 	/*
 		Calculates next step with ADAPTIVE STRATEGY
 		@param fun - function

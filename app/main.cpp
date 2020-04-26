@@ -15,7 +15,7 @@ int main()
 	FastGradStep gradStep1(uniOpt);
 	GradOpt opt(&gradStep1);
 	
-	nric::vecfun fun = [](nric::vec x) { return 2 * pow(x[0], 4) + pow(x[1], 4) - pow(x[0], 2) - 2 * pow(x[1], 2); };
+	nric::vecfun fun = [](nric::vec x) { return 2 * x[0] + x[1] + 4 * sqrt(1 + 5 * pow(x[0], 2) + 3 * pow(x[1], 2)); };
 	std::cout << opt.optimize(fun, { 10000, 900 }, 0.0000001) << "\n\n";
 
 	AdaptGradStep gradStep2;
